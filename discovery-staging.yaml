@@ -1,0 +1,10 @@
+global:
+  auth:
+    auth0_domain: "smartcolumbusos-staging.auth0.com"
+env:
+  api_host: "https://data.staging.internal.smartcolumbusos.com"
+  contribute_host: "https://sharedata.staging-smartos.com/datasets"
+  gtm_id: "GTM-NT27NJB"
+  base_url: "staging-smartos.com"
+  auth0_client_id: ""
+  additional_csp_hosts: "*.staging-smartos.com"

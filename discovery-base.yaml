@@ -1,0 +1,52 @@
+global:
+  auth:
+    auth0_domain:
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/ssl-policy: "ELBSecurityPolicy-TLS-1-2-2017-01"
+      alb.ingress.kubernetes.io/scheme: "internal"
+      alb.ingress.kubernetes.io/subnets: ""
+      alb.ingress.kubernetes.io/security-groups: ""
+      alb.ingress.kubernetes.io/certificate-arn: ""
+      alb.ingress.kubernetes.io/tags: scos.delete.on.teardown=true
+      alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=4000
+      alb.ingress.kubernetes.io/actions.redirect: '{"Type": "redirect", "RedirectConfig":{"Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+      alb.ingress.kubernetes.io/wafv2-acl-arn: ""
+    dnsZone: localhost
+    rootDnsZone: localhost
+
+service:
+  port: 80
+
+image:
+  name: smartcolumbusos/discovery_ui
+  tag: 2.0.0
+  environment: "local"
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+env:
+  api_host: "https://data.dev.internal.smartcolumbusos.com"
+  gtm_id: "GTM-NT27NJB"
+  base_url: "dev-smartos.com"
+  streets_tile_layer_url: "https://{s}.tiles.mapbox.com/styles/v1/mapbox/streets-v10/tiles/{z}/{x}/{y}{r}?access_token=pk.eyJ1Ijoic21ydGNidXMiLCJhIjoiY2ptMTB6YjIzMGVuazNwcWcyczk3a2ZmNSJ9.SjVhquTC7K5RzbGqoGZUYg"
+  mapbox_access_token: "pk.eyJ1Ijoic21ydGNidXMiLCJhIjoiY2ptMTB6YjIzMGVuazNwcWcyczk3a2ZmNSJ9.SjVhquTC7K5RzbGqoGZUYg"
+  auth0_audience: "discovery_api"
+
+nodeSelector: {}
+
+tolerations: 
+  - key: scos.run.public-worker
+    operator: Equal
+    value: "true"
+    effect: NoExecute
+
+affinity: {}

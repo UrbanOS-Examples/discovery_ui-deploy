@@ -1,0 +1,10 @@
+global:
+  auth:
+    auth0_domain: "smartcolumbusos-prod.auth0.com"
+env:
+  api_host: "https://data.smartcolumbusos.com"
+  contribute_host: "https://sharedata.smartcolumbusos.com/datasets"
+  gtm_id: "GTM-K7NLPM8"
+  base_url: "smartcolumbusos.com"
+  auth0_domain: "smartcolumbusos-prod.auth0.com"
+  auth0_client_id: ""

@@ -1,0 +1,11 @@
+global:
+  auth:
+    auth0_domain: "smartcolumbusos-dev.auth0.com"
+env:
+  api_host: "https://data.dev.internal.smartcolumbusos.com"
+  contribute_host: "https://sharedata.dev-smartos.com/datasets"
+  gtm_id: "GTM-MQV8L2F"
+  base_url: "dev-smartos.com"
+  auth0_domain: "smartcolumbusos-dev.auth0.com"
+  auth0_client_id: ""
+  additional_csp_hosts: "*.dev-smartos.com"
